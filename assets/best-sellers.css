@@ -50,10 +50,9 @@
 }
 
 /* Main container */
-/* TODO: add padding values from schema for section */
 .best-sellers {
-  padding-top: 80px;
-  padding-bottom: 80px;
+  padding-top: 120px;
+  padding-bottom: 120px;
 }
 
 .best-sellers .best-sellers__container {
@@ -106,11 +105,8 @@
 
 /* Preview element */
 .best-sellers .best-sellers__preview {
-  position: relative;
   border-radius: 16px;
   overflow: hidden;
-  flex: 1;
-  min-width: 0;
 }
 
 .best-sellers .best-sellers__preview-img-wrapper {
@@ -139,18 +135,18 @@
   flex-direction: column;
 }
 
-.best-sellers .best-sellers__bagde {
+.best-sellers .best-sellers__badge {
   padding: 8px 16px;
   border-radius: 8px;
   font-weight: 500;
 }
 
-.best-sellers .best-sellers__bagde--new {
+.best-sellers .best-sellers__badge--new {
   border: 1px solid #DCDCDC;
   background-color: #fff;
 }
 
-.best-sellers .best-sellers__bagde--sale {
+.best-sellers .best-sellers__badge--sale {
   background-color: #E41616;
   color: #fff;
 }
@@ -256,6 +252,11 @@
     padding: 0;
   }
 
+  .best-sellers .best-sellers__preview-wrapper {
+    width: 100%;
+    flex: none;
+  }
+
   .best-sellers .best-sellers__preview {
     width: 100%;
     flex: none;
@@ -276,4 +277,83 @@
     left: 8px;
     right: 8px;
   }
+}
+
+/* Modal styles */
+.best-sellers__modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.best-sellers__modal {
+  background-color: #fff;
+  padding: 32px;
+  border-radius: 16px;
+  max-width: 450px;
+  width: 90%;
+  position: relative;
+}
+
+.best-sellers__modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  padding: 8px;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+.best-sellers__modal-close:hover {
+  opacity: 0.7;
+}
+
+.best-sellers__modal-text {
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  padding-right: 24px;
+}
+
+.best-sellers__preview-wrapper {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+}
+
+.best-sellers__preview {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.best-sellers__preview.active {
+  position: relative;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.best-sellers__btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.best-sellers__preview-img--placeholder {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
