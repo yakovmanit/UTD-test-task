@@ -75,28 +75,18 @@
           >
             {% if product.featured_image %}
               <a class="best-sellers__preview-img-wrapper" href="{{ product.url }}">
-                <picture>
-                  {%- assign image_desktop = product.featured_image | image_url: width: 1600 -%}
-                  {%- assign image_desktop_2x = product.featured_image | image_url: width: 3200 -%}
-                  {%- assign image_mobile = product.featured_image | image_url: width: 800 -%}
-                  {%- assign image_mobile_2x = product.featured_image | image_url: width: 1600 -%}
-
-                  <source
-                    media="(max-width: 768px)"
-                    srcset="{{ image_mobile }} 1x, {{ image_mobile_2x }} 2x"
-                  >
-                  <source
-                    media="(min-width: 769px)"
-                    srcset="{{ image_desktop }} 1x, {{ image_desktop_2x }} 2x"
-                  >
-                  <img
-                    class="best-sellers__preview-img"
-                    src="{{ image_desktop }}"
-                    alt="{{ product.featured_image.alt | escape | default: product.title }}"
-                    loading="lazy"
-                  >
-                </picture>
+                {{
+                  product.featured_image
+                  | image_url: width: 1600
+                  | image_tag:
+                    widths: '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840',
+                    sizes: '(min-width: 1936px) 832px, (min-width: 769px) calc((100vw - 144px) / 2), calc(100vw - 128px)',
+                    class: 'best-sellers__preview-img',
+                    loading: 'lazy',
+                    alt: product.featured_image.alt | default: product.title
+                }}
               </a>
+
             {% else %}
               <a class="best-sellers__preview-img-wrapper" href="{{ product.url }}">
                 {{ 'product-1' | placeholder_svg_tag: 'best-sellers__preview-img best-sellers__preview-img--placeholder' }}
