@@ -51,14 +51,14 @@
 
 /* Main container */
 .best-sellers {
-  padding-top: 120px;
-  padding-bottom: 120px;
 }
 
 .best-sellers .best-sellers__container {
   display: flex;
   gap: 16px;
   align-items: center;
+  padding-top: 120px;
+  padding-bottom: 120px;
 }
 
 /* Collections element */

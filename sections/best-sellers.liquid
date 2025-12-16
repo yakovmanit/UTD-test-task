@@ -1,7 +1,14 @@
-
 {{ 'best-sellers.css' | asset_url | stylesheet_tag }}
 
-{% if section.blocks.size > 0 %}
+{% assign has_collections = false %}
+{% for block in section.blocks %}
+  {% if block.settings.collection != blank %}
+    {% assign has_collections = true %}
+    {% break %}
+  {% endif %}
+{% endfor %}
+
+{% if has_collections %}
   <div class="best-sellers__container container">
     <div class="best-sellers__collections">
       {% if section.settings.section_label != blank %}
