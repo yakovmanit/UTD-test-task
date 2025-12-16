@@ -6,7 +6,8 @@
  * or related systems. Please exercise caution as any changes
  * made to this file may be overwritten.
  * ------------------------------------------------------------
- */{
+ */
+{
   "sections": {
     "hero_jVaWmY": {
       "type": "hero",
@@ -65,6 +66,7 @@
         "custom_mobile_media": false,
         "media_type_1_mobile": "image",
         "media_type_2_mobile": "image",
+        "link": "",
         "open_in_new_tab": false,
         "content_direction": "column",
         "vertical_on_mobile": true,
@@ -86,6 +88,45 @@
         "reflection_opacity": 75,
         "padding-block-start": 100,
         "padding-block-end": 72
+      }
+    },
+    "best_sellers_zwUHQV": {
+      "type": "best-sellers",
+      "blocks": {
+        "collection_LAUdNL": {
+          "type": "collection",
+          "settings": {
+            "collection": "test-collection-1",
+            "collection_title": "",
+            "product": ""
+          }
+        },
+        "collection_h4TdnN": {
+          "type": "collection",
+          "settings": {
+            "collection": "test-collection-2",
+            "collection_title": "Custom collection title",
+            "product": ""
+          }
+        },
+        "collection_cjadN3": {
+          "type": "collection",
+          "settings": {
+            "collection": "test-collection-3",
+            "collection_title": "",
+            "product": "gift-card"
+          }
+        }
+      },
+      "block_order": [
+        "collection_LAUdNL",
+        "collection_h4TdnN",
+        "collection_cjadN3"
+      ],
+      "name": "Best Sellers",
+      "settings": {
+        "section_label": "Best sellers",
+        "title": "Trending Products"
       }
     },
     "product_list_fa6P9H": {
@@ -285,6 +326,7 @@
   },
   "order": [
     "hero_jVaWmY",
+    "best_sellers_zwUHQV",
     "product_list_fa6P9H"
   ]
 }
