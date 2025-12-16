@@ -1,0 +1,137 @@
+/* Reset default Shopify theme styles start */
+.best-sellers * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.best-sellers h1,
+.best-sellers h2,
+.best-sellers h3,
+.best-sellers h4,
+.best-sellers h5,
+.best-sellers h6 {
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  margin: 0;
+}
+
+.best-sellers p {
+  margin: 0;
+}
+
+.best-sellers ul,
+.best-sellers ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.best-sellers a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.best-sellers button {
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+  font: inherit;
+}
+/* Reset default Shopify theme styles end */
+
+/* General */
+.best-sellers .container {
+  max-width: 1808px;
+  margin: 0 auto;
+  padding: 0 64px;
+}
+
+/* Main container */
+.best-sellers.best-sellers {
+  line-height: 1.5;
+}
+
+.best-sellers .best-sellers__container {
+  display: flex;
+  gap: 16px;
+}
+
+/* Collections element */
+.best-sellers .best-sellers__collections {
+  padding: 210px 64px;
+  width: 50%;
+}
+
+.best-sellers .best-sellers__pretitle {
+  font-size: 16px;
+  line-height: 24px;
+  margin-bottom: 16px;
+}
+
+.best-sellers .best-sellers__title {
+  margin-bottom: 64px;
+  font-size: 38px;
+  line-height: 46px;
+}
+
+.best-sellers .best-sellers__collections-list {}
+
+.best-sellers .best-sellers__item {
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #DCDCDC;
+  margin-bottom: 0;
+  width: 100%;
+}
+
+.best-sellers .best-sellers__item.inactive {
+  opacity: 0.5;
+}
+
+.best-sellers .best-sellers__item-title {
+  font-size: 28px;
+  line-height: 34px;
+  margin-bottom: 0;
+  font-weight: 500;
+}
+
+/* Preview element */
+.best-sellers .best-sellers__preview {}
+
+.best-sellers .best-sellers__preview-img-wrapper {}
+
+.best-sellers .best-sellers__preview-img {}
+
+/* Badges */
+.best-sellers .best-sellers__badges {}
+
+.best-sellers .best-sellers__bagde {}
+
+.best-sellers .best-sellers__bagde--new {}
+
+.best-sellers .best-sellers__bagde--sale {}
+
+/* Buttons */
+.best-sellers .best-sellers__btns {}
+
+.best-sellers .best-sellers__wishlist-btn {}
+
+.best-sellers .best-sellers__atc-btn {}
+
+/* Product info */
+.best-sellers .best-sellers__preview-info {}
+
+.best-sellers .best-sellers__preview-name {}
+
+.best-sellers .best-sellers__preview-price-wrapper {}
+
+.best-sellers .best-sellers__preview-price {}
+
+.best-sellers .best-sellers__preview-price--current {}
+
+.best-sellers .best-sellers__preview-price--old {}
