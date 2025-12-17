@@ -129,45 +129,6 @@
         "title": "Trending Products"
       }
     },
-    "best_sellers_Xd7zcq": {
-      "type": "best-sellers",
-      "blocks": {
-        "collection_KYdi7E": {
-          "type": "collection",
-          "settings": {
-            "collection": "test-collection-1",
-            "collection_title": "",
-            "product": ""
-          }
-        },
-        "collection_twRctz": {
-          "type": "collection",
-          "settings": {
-            "collection": "test-collection-2",
-            "collection_title": "Custom collection title",
-            "product": ""
-          }
-        },
-        "collection_aTwcGi": {
-          "type": "collection",
-          "settings": {
-            "collection": "test-collection-3",
-            "collection_title": "",
-            "product": "gift-card"
-          }
-        }
-      },
-      "block_order": [
-        "collection_KYdi7E",
-        "collection_twRctz",
-        "collection_aTwcGi"
-      ],
-      "name": "Best Sellers",
-      "settings": {
-        "section_label": "Best sellers",
-        "title": "Trending Products"
-      }
-    },
     "product_list_fa6P9H": {
       "type": "product-list",
       "blocks": {
@@ -366,7 +327,6 @@
   "order": [
     "hero_jVaWmY",
     "best_sellers_zwUHQV",
-    "best_sellers_Xd7zcq",
     "product_list_fa6P9H"
   ]
 }
