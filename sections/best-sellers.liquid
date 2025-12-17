@@ -96,7 +96,7 @@
                 {% for tag in product.tags %}
                   {% if tags_count < 3 %}
                     {% assign tag_downcase = tag | downcase %}
-                    <div class="best-sellers__badge{% if tag_downcase == 'sale' %} best-sellers__badge--sale{% else %} best-sellers__badge--new{% endif %}">
+                    <div class="best-sellers__badge{% if tag_downcase == 'sale' %} best-sellers__badge--sale{% endif %}">
                       {{ tag }}
                     </div>
                     {% assign tags_count = tags_count | plus: 1 %}

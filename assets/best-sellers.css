@@ -137,15 +137,14 @@
   padding: 8px 16px;
   border-radius: 8px;
   font-weight: 500;
-}
-
-.best-sellers .best-sellers__badge--new {
   border: 1px solid #DCDCDC;
   background-color: #fff;
+  width: fit-content;
 }
 
 .best-sellers .best-sellers__badge--sale {
   background-color: #E41616;
+  border-color: #E41616;
   color: #fff;
 }
 
