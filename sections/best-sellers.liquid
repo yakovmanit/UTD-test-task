@@ -70,76 +70,96 @@
             data-product-title="{{ product.title | escape }}"
             data-product-available="{{ product.selected_or_first_available_variant.available }}"
           >
-            {% if product.featured_image %}
-              <a class="best-sellers__preview-img-wrapper" href="{{ product.url }}">
-                {{
-                  product.featured_image
-                  | image_url: width: 1600
-                  | image_tag:
-                    widths: '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840',
-                    sizes: '(min-width: 1936px) 832px, (min-width: 769px) calc((100vw - 144px) / 2), calc(100vw - 128px)',
-                    class: 'best-sellers__preview-img',
-                    loading: 'lazy',
-                    alt: product.featured_image.alt | default: product.title
-                }}
-              </a>
+            <div class="best-sellers__preview-img-wrapper">
+              {% if product.featured_image %}
+                <a href="{{ product.url }}" class="best-sellers__image-link">
+                  <picture>
+                    {%- comment -%} Mobile {%- endcomment -%}
+                    <source
+                      media="(max-width: 767px)"
+                      srcset="
+                        {{ product.featured_image | image_url: width: 400 }} 1x,
+                        {{ product.featured_image | image_url: width: 800 }} 2x
+                      "
+                    >
 
-            {% else %}
-              <a class="best-sellers__preview-img-wrapper" href="{{ product.url }}">
-                {{ 'product-1' | placeholder_svg_tag: 'best-sellers__preview-img best-sellers__preview-img--placeholder' }}
-              </a>
-            {% endif %}
+                    {%- comment -%} Desktop {%- endcomment -%}
+                    <source
+                      media="(min-width: 768px)"
+                      srcset="
+                        {{ product.featured_image | image_url: width: 816 }} 1x,
+                        {{ product.featured_image | image_url: width: 1632 }} 2x
+                      "
+                    >
 
-            {% if product.tags.size > 0 %}
-              <div class="best-sellers__badges">
-                {% assign tags_count = 0 %}
-                {% for tag in product.tags %}
-                  {% if tags_count < 3 %}
-                    {% assign tag_downcase = tag | downcase %}
-                    <div class="best-sellers__badge{% if tag_downcase == 'sale' %} best-sellers__badge--sale{% endif %}">
-                      {{ tag }}
-                    </div>
-                    {% assign tags_count = tags_count | plus: 1 %}
-                  {% endif %}
-                {% endfor %}
+                    {%- comment -%} For old browsers {%- endcomment -%}
+                    <img
+                      src="{{ product.featured_image | image_url: width: 816 }}"
+                      alt="{{ product.featured_image.alt | default: product.title | escape }}"
+                      class="best-sellers__preview-img"
+                      width="{{ product.featured_image.width }}"
+                      height="{{ product.featured_image.height }}"
+                      loading="lazy"
+                    >
+                  </picture>
+                </a>
+              {% else %}
+                <div class="best-sellers__image-link">
+                  {{ 'product-1' | placeholder_svg_tag: 'best-sellers__preview-img best-sellers__preview-img--placeholder' }}
+                </div>
+              {% endif %}
+
+              {% if product.tags.size > 0 %}
+                <div class="best-sellers__badges">
+                  {% assign tags_count = 0 %}
+                  {% for tag in product.tags %}
+                    {% if tags_count < 3 %}
+                      {% assign tag_downcase = tag | downcase %}
+                      <div class="best-sellers__badge{% if tag_downcase == 'sale' %} best-sellers__badge--sale{% endif %}">
+                        {{ tag }}
+                      </div>
+                      {% assign tags_count = tags_count | plus: 1 %}
+                    {% endif %}
+                  {% endfor %}
+                </div>
+              {% endif %}
+
+              <div class="best-sellers__btns">
+                <button
+                  class="best-sellers__btn best-sellers__btn-wishlist"
+                  data-wishlist-btn
+                  type="button"
+                  aria-label="Add to wishlist"
+                >
+                  {% render 'icon-wishlist' %}
+                </button>
+                <button
+                  class="best-sellers__btn best-sellers__btn-cart"
+                  data-cart-btn
+                  type="button"
+                  aria-label="Add to cart"
+                  {% unless product.selected_or_first_available_variant.available %}disabled{% endunless %}
+                >
+                  {% render 'icon-eye' %}
+                </button>
               </div>
-            {% endif %}
 
-            <div class="best-sellers__btns">
-              <button
-                class="best-sellers__btn best-sellers__btn-wishlist"
-                data-wishlist-btn
-                type="button"
-                aria-label="Add to wishlist"
-              >
-                {% render 'icon-wishlist' %}
-              </button>
-              <button
-                class="best-sellers__btn best-sellers__btn-cart"
-                data-cart-btn
-                type="button"
-                aria-label="Add to cart"
-                {% unless product.selected_or_first_available_variant.available %}disabled{% endunless %}
-              >
-                {% render 'icon-eye' %}
-              </button>
-            </div>
-
-            <div class="best-sellers__preview-info">
-              <a class="best-sellers__preview-name" href="{{ product.url }}">{{ product.title }}</a>
-              <div class="best-sellers__preview-price-wrapper">
-                {% if product.compare_at_price > product.price %}
-                  <p class="best-sellers__preview-price best-sellers__preview-price--current">
-                    {{ product.price | money }}
-                  </p>
-                  <p class="best-sellers__preview-price best-sellers__preview-price--old">
-                    {{ product.compare_at_price | money }}
-                  </p>
-                {% else %}
-                  <p class="best-sellers__preview-price best-sellers__preview-price--current">
-                    {{ product.price | money }}
-                  </p>
-                {% endif %}
+              <div class="best-sellers__preview-info">
+                <a class="best-sellers__preview-name" href="{{ product.url }}">{{ product.title }}</a>
+                <div class="best-sellers__preview-price-wrapper">
+                  {% if product.compare_at_price > product.price %}
+                    <p class="best-sellers__preview-price best-sellers__preview-price--current">
+                      {{ product.price | money }}
+                    </p>
+                    <p class="best-sellers__preview-price best-sellers__preview-price--old">
+                      {{ product.compare_at_price | money }}
+                    </p>
+                  {% else %}
+                    <p class="best-sellers__preview-price best-sellers__preview-price--current">
+                      {{ product.price | money }}
+                    </p>
+                  {% endif %}
+                </div>
               </div>
             </div>
           </div>
